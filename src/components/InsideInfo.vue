@@ -202,4 +202,19 @@ export default {
   color: #fff;
   border: none;
 }
+
+@media (max-width: 880px) {
+  .info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 100%;
+  }
+
+  .wrapper {
+    padding: 20px;
+  }
+}
 </style>

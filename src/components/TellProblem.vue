@@ -9,9 +9,7 @@ export default {
       this.$emit("updateTell", false);
     },
   },
-  mounted() {
-    document.body.style.overflow = "hidden";
-  },
+  mounted() {},
 };
 </script>
 <template>
@@ -174,5 +172,11 @@ input[type="file"] {
   display: flex;
   justify-content: space-evenly;
   gap: 12px;
+}
+
+@media (max-height: 932px) {
+  .wrapper {
+    padding-top: 50px;
+  }
 }
 </style>

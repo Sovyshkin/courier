@@ -25,6 +25,7 @@ export default {
       login: false,
       register: false,
       news: false,
+      projects: false,
     };
   },
   methods: {
@@ -58,7 +59,8 @@ export default {
       @updateLogin="handleLogin"
       class="header"
     />
-    <LeftScreen class="left" />
+    <LeftScreen class="left" v-if="projects" />
+    <div class="projects" @click="projects = !projects">Проекты</div>
     <RightScreen v-if="news" class="right" />
     <div class="news" @click="news = !news">Новости</div>
     <TellProblem class="tell" v-if="tellProblem" @updateTell="handleTell" />
@@ -232,6 +234,25 @@ button::-moz-focus-inner {
   position: absolute;
   z-index: 2;
   right: 0;
+  margin-top: 30px;
+  background-color: #ff5f21;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 5px;
+  writing-mode: tb-rl;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 5px 0 0 5px;
+  -webkit-user-select: none; /* Для старых версий Safari */
+  -moz-user-select: none; /* Для Firefox */
+  -ms-user-select: none; /* Для Internet Explorer и Edge */
+  user-select: none; /* Современные браузеры */
+}
+
+.projects {
+  position: absolute;
+  z-index: 2;
+  left: 0;
   margin-top: 30px;
   background-color: #ff5f21;
   color: #fff;

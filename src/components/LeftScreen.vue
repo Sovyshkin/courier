@@ -47,7 +47,7 @@ export default {
         Проблемы
       </button>
     </div>
-    <div class="info projects" v-if="active == 1">
+    <div class="info" v-if="active == 1">
       <h2>Проекты</h2>
       <div
         class="item"
@@ -138,6 +138,8 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .item {

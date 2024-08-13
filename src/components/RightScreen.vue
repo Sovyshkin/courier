@@ -128,6 +128,8 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .item {

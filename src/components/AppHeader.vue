@@ -84,10 +84,18 @@ export default {
       >
         Голосование
       </li>
-      <li class="nav-item" :class="{ active: this.$route.name == 'info' }">
+      <li
+        @click="this.$router.push({ name: 'info' })"
+        class="nav-item"
+        :class="{ active: this.$route.name == 'info' }"
+      >
         Информация
       </li>
-      <li class="nav-item" :class="{ active: this.$route.name == 'offers' }">
+      <li
+        @click="this.$router.push({ name: 'offer' })"
+        class="nav-item"
+        :class="{ active: this.$route.name == 'offers' }"
+      >
         Предложения
       </li>
       <li class="nav-item" :class="{ active: this.$route.name == 'chats' }">
