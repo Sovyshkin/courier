@@ -45,7 +45,17 @@ export default {
     </div>
     <div class="info" v-if="active == 1">
       <h2>Новости</h2>
-      <div class="item" v-for="item in items" :key="item">
+      <div
+        class="item"
+        @click="
+          this.$router.push({
+            name: 'info_inside',
+            query: { name: item.name, img: item.img, desc: item.desc },
+          })
+        "
+        v-for="item in items"
+        :key="item"
+      >
         <img class="img" :src="'../assets/' + item.img" alt="" />
         <div class="moreInfo">
           <div class="title">{{ item.name }}</div>
