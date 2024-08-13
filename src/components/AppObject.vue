@@ -201,4 +201,22 @@ export default {
   max-height: 100px;
   width: 50%;
 }
+
+@media (max-width: 880px) {
+  .info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 100%;
+  }
+
+  .wrapper {
+    padding: 20px;
+  }
+  .comment-send textarea {
+    width: 80%;
+  }
+}
 </style>
