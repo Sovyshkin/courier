@@ -46,9 +46,6 @@ export default {
       src="../assets/menu.png"
       alt=""
     />
-    <div class="menu" :class="{ active_menu: menu }">
-      <button @click="log()" class="btn log">Войти</button>
-    </div>
   </div>
 </template>
 
@@ -170,17 +167,9 @@ export default {
   opacity: 1;
 }
 
-@media (max-width: 1100px) {
-  .group-item {
-    display: none;
-  }
-
-  .wrap-btns {
-    display: none;
-  }
-
-  .img-menu {
-    display: block;
+@media (max-width: 1000px) {
+  .header {
+    padding: 10px;
   }
 }
 </style>

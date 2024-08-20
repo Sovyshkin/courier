@@ -235,7 +235,7 @@ button::-moz-focus-inner {
   color: #fff;
   font-weight: 600;
   padding: 10px 5px;
-  writing-mode: tb-rl;
+  writing-mode: vertical-lr;
   letter-spacing: 2px;
   cursor: pointer;
   border-radius: 5px 0 0 5px;

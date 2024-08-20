@@ -4,19 +4,22 @@ export default {
   name: "AppLogin",
   data() {
     return {
-      email: "",
+      username: "",
+      password: "",
       message: "",
     };
   },
   methods: {
     async log() {
       try {
-        if (this.email) {
+        if (this.username && this.password) {
           let response = await axios.post(`/login`, {
             params: {
-              email: this.email,
+              username: this.username,
+              password: this.password,
             },
           });
+          console.log(response);
           this.message = response.data.message;
           if (this.message == "Успешно") {
             localStorage.setItem("login", true);
@@ -50,13 +53,23 @@ export default {
       </div>
       <div class="group">
         <input
-          type="email"
-          name="email"
-          id="email"
-          v-model="email"
-          placeholder="Введите Email"
+          type="text"
+          name="username"
+          id="username"
+          v-model="username"
+          placeholder="Введите логин"
         />
-        <span class="group-value">Email</span>
+        <span class="group-value">Логин</span>
+      </div>
+      <div class="group">
+        <input
+          type="password"
+          name="password"
+          id="password"
+          v-model="password"
+          placeholder="Введите пароль"
+        />
+        <span class="group-value">Пароль</span>
       </div>
       <button v-if="!message" @click="log" class="btn">Войти</button>
       <div
@@ -68,12 +81,6 @@ export default {
         v-if="message"
       >
         {{ message }}
-      </div>
-      <div class="reg">
-        <span>Еще не зарегистрировались?</span>
-        <span @click="this.$emit('updateRegister', true)" class="register"
-          >Зарегистрироваться</span
-        >
       </div>
     </div>
   </div>

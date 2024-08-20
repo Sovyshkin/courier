@@ -40,47 +40,11 @@ export default {
     </div> -->
     <div class="info" v-if="active == 1">
       <h2>Закрытые заказы</h2>
-      <div
-        class="item"
-        @click="
-          this.$router.push({
-            name: 'info_inside',
-            query: { name: item.name, img: item.img, desc: item.desc },
-          })
-        "
-        v-for="item in items"
-        :key="item"
-      >
+      <div class="item" v-for="item in items" :key="item">
         <img class="img" :src="'../assets/' + item.img" alt="" />
         <div class="moreInfo">
           <div class="title">{{ item.name }}</div>
           <div class="desc">{{ truncateText(item.desc) }}</div>
-          <span class="readMore"
-            >Читать подробнее <img src="../assets/arrow-right.svg" alt=""
-          /></span>
-        </div>
-      </div>
-    </div>
-    <div class="info events" v-if="active == 2">
-      <h2>Мероприятия</h2>
-      <div class="item">
-        <img class="img" src="../assets/avatar.jpeg" alt="" />
-        <div class="moreInfo">
-          <div class="title">Название</div>
-          <div class="desc">Тут описание</div>
-          <span class="readMore"
-            >Читать подробнее <img src="../assets/arrow-right.svg" alt=""
-          /></span>
-        </div>
-      </div>
-    </div>
-    <div class="info useful" v-if="active == 3">
-      <h2>Полезное</h2>
-      <div class="item">
-        <img class="img" src="../assets/avatar.jpeg" alt="" />
-        <div class="moreInfo">
-          <div class="title">Название</div>
-          <div class="desc">Тут описание</div>
           <span class="readMore"
             >Читать подробнее <img src="../assets/arrow-right.svg" alt=""
           /></span>
