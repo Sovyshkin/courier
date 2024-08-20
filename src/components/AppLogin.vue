@@ -14,10 +14,8 @@ export default {
       try {
         if (this.username && this.password) {
           let response = await axios.post(`/login`, {
-            params: {
-              username: this.username,
-              password: this.password,
-            },
+            username: this.username,
+            password: this.password,
           });
           console.log(response);
           this.message = response.data.message;
