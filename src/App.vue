@@ -4,9 +4,7 @@ import MainMap from "./components/MainMap.vue";
 import AppHeader from "./components/AppHeader.vue";
 import LeftScreen from "./components/LeftScreen.vue";
 import RightScreen from "./components/RightScreen.vue";
-import TellProblem from "./components/TellProblem.vue";
 import AppLogin from "./components/AppLogin.vue";
-import AppRegister from "./components/AppRegister.vue";
 export default {
   name: "App",
   components: {
@@ -14,25 +12,17 @@ export default {
     AppHeader,
     LeftScreen,
     RightScreen,
-    TellProblem,
     AppLogin,
-    AppRegister,
     RouterView,
   },
   data() {
     return {
-      tellProblem: false,
       login: false,
-      register: false,
       news: false,
       projects: false,
     };
   },
   methods: {
-    handleTell(tell) {
-      this.tellProblem = tell;
-    },
-
     handleLogin(login) {
       this.login = login;
     },
@@ -42,14 +32,7 @@ export default {
       this.register = register;
     },
   },
-  mounted() {
-    let city = localStorage.getItem("city");
-    if (!city) {
-      localStorage.setItem("city", "Казань");
-      localStorage.setItem("lat", "55.796127");
-      localStorage.setItem("long", "49.106414");
-    }
-  },
+  mounted() {},
 };
 </script>
 <template>
@@ -60,17 +43,11 @@ export default {
       class="header"
     />
     <LeftScreen class="left" v-if="projects" />
-    <div class="projects" @click="projects = !projects">Проекты</div>
+    <div class="projects" @click="projects = !projects">Активные заказы</div>
     <RightScreen v-if="news" class="right" />
-    <div class="news" @click="news = !news">Новости</div>
-    <TellProblem class="tell" v-if="tellProblem" @updateTell="handleTell" />
+    <div class="news" @click="news = !news">Закрытые заказы</div>
     <AppLogin
       v-if="login"
-      @updateLogin="handleLogin"
-      @updateRegister="handleRegister"
-    />
-    <AppRegister
-      v-if="register"
       @updateLogin="handleLogin"
       @updateRegister="handleRegister"
     />

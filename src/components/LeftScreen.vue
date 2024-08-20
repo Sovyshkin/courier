@@ -6,21 +6,9 @@ export default {
       active: 1,
       projects: [
         {
-          name: "Маршрут автобуса",
-          img: "bus.jpeg",
-          desc: "Водитель автобуса систематически нарушает пдд. Маршрут 26, каждое утро едет по ул.Ленина и пересекает двойную сплошную.",
-        },
-        {
-          name: "Большая яма",
-          img: "yama.jpeg",
-          desc: "Большая яма. На улице Овечкина в яме лужа по пояс.",
-        },
-      ],
-      problems: [
-        {
-          name: "Маршрут автобуса",
-          img: "bus.jpeg",
-          desc: "Водитель автобуса систематически нарушает пдд. Маршрут 26, каждое утро едет по ул.Ленина и пересекает двойную сплошную.",
+          name: "Название",
+          img: "картинка",
+          desc: "Описание",
         },
       ],
     };
@@ -39,16 +27,16 @@ export default {
 
 <template>
   <div class="wrapper">
-    <div class="wrap_btns">
+    <!-- <div class="wrap_btns">
       <button @click="active = 1" class="btn" :class="{ active: active == 1 }">
         Проекты
       </button>
       <button @click="active = 2" class="btn" :class="{ active: active == 2 }">
         Проблемы
       </button>
-    </div>
+    </div> -->
     <div class="info" v-if="active == 1">
-      <h2>Проекты</h2>
+      <h2>Активные заказы</h2>
       <div
         class="item"
         @click="

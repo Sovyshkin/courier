@@ -36,38 +36,8 @@ export default {
     <div class="codered" @click="this.$router.push({ name: 'home' })">
       Code<span class="red">Red</span>
     </div>
-    <nav class="group-item">
-      <li
-        @click="this.$router.push({ name: 'voting' })"
-        class="nav-item"
-        :class="{ active: this.$route.name == 'voting' }"
-      >
-        Голосование
-      </li>
-      <li
-        @click="this.$router.push({ name: 'info' })"
-        class="nav-item"
-        :class="{ active: this.$route.name == 'info' }"
-      >
-        Информация
-      </li>
-      <li
-        @click="this.$router.push({ name: 'offer' })"
-        class="nav-item"
-        :class="{ active: this.$route.name == 'offer' }"
-      >
-        Предложения
-      </li>
-      <li class="nav-item" :class="{ active: this.$route.name == 'chats' }">
-        Чаты
-      </li>
-    </nav>
+
     <div class="wrap-btns">
-      <div class="city">
-        Казань
-        <img src="../assets/arrow-down.svg" alt="" />
-      </div>
-      <button @click="tell()" class="btn">Рассказать о проблеме</button>
       <button @click="log()" class="btn log">Войти</button>
     </div>
     <img
@@ -77,35 +47,6 @@ export default {
       alt=""
     />
     <div class="menu" :class="{ active_menu: menu }">
-      <li
-        @click="this.$router.push({ name: 'voting' })"
-        class="nav-item"
-        :class="{ active: this.$route.name == 'voting' }"
-      >
-        Голосование
-      </li>
-      <li
-        @click="this.$router.push({ name: 'info' })"
-        class="nav-item"
-        :class="{ active: this.$route.name == 'info' }"
-      >
-        Информация
-      </li>
-      <li
-        @click="this.$router.push({ name: 'offer' })"
-        class="nav-item"
-        :class="{ active: this.$route.name == 'offers' }"
-      >
-        Предложения
-      </li>
-      <li class="nav-item" :class="{ active: this.$route.name == 'chats' }">
-        Чаты
-      </li>
-      <div class="city">
-        Казань
-        <img src="../assets/arrow-down.svg" alt="" />
-      </div>
-      <button @click="tell()" class="btn">Рассказать о проблеме</button>
       <button @click="log()" class="btn log">Войти</button>
     </div>
   </div>

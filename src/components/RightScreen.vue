@@ -6,14 +6,9 @@ export default {
       active: 1,
       items: [
         {
-          name: "Погода",
-          img: "grom.jpeg",
-          desc: "В Татарстане объявлено штормовое предупреждение. Ожидаются сильные дожди и грозы",
-        },
-        {
-          name: "Продукция",
-          img: "eggs.jpeg",
-          desc: "В Татарстане за неделю подешевели куриные яйца, помидоры и мука. Также в этот список вошли огурцы, свекла, бананы",
+          name: "Название",
+          img: "картинка",
+          desc: "Описание",
         },
       ],
     };
@@ -32,7 +27,7 @@ export default {
 
 <template>
   <div class="wrapper">
-    <div class="wrap_btns">
+    <!-- <div class="wrap_btns">
       <button @click="active = 1" class="btn" :class="{ active: active == 1 }">
         Новости
       </button>
@@ -42,9 +37,9 @@ export default {
       <button @click="active = 3" class="btn" :class="{ active: active == 3 }">
         Полезное
       </button>
-    </div>
+    </div> -->
     <div class="info" v-if="active == 1">
-      <h2>Новости</h2>
+      <h2>Закрытые заказы</h2>
       <div
         class="item"
         @click="
