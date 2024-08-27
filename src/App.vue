@@ -34,23 +34,21 @@ export default {
 };
 </script>
 <template>
-  <div class="wrapper" v-if="this.$route.path == '/'">
-    <AppHeader
-      @updateTell="handleTell"
-      @updateLogin="handleLogin"
-      class="header"
-    />
-    <LeftScreen class="left" v-if="projects" />
-    <div class="projects" @click="projects = !projects">Активные заказы</div>
-    <RightScreen v-if="news" class="right" />
-    <div class="news" @click="news = !news">Закрытые заказы</div>
-    <AppLogin
-      v-if="login"
-      @updateLogin="handleLogin"
-      @updateRegister="handleRegister"
-    />
-    <MainMap class="map" />
-  </div>
+  <AppHeader
+    @updateTell="handleTell"
+    @updateLogin="handleLogin"
+    class="header"
+  />
+  <LeftScreen class="left" v-if="projects" />
+  <div class="projects" @click="projects = !projects">Активные заказы</div>
+  <RightScreen v-if="news" class="right" />
+  <div class="news" @click="news = !news">Закрытые заказы</div>
+  <AppLogin
+    v-if="login"
+    @updateLogin="handleLogin"
+    @updateRegister="handleRegister"
+  />
+  <MainMap class="map" />
 </template>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
@@ -233,5 +231,17 @@ button::-moz-focus-inner {
   -moz-user-select: none; /* Для Firefox */
   -ms-user-select: none; /* Для Internet Explorer и Edge */
   user-select: none; /* Современные браузеры */
+}
+
+.header {
+  position: absolute !important;
+  top: 0;
+}
+
+.right,
+.left,
+.news,
+.projects {
+  top: 10%;
 }
 </style>

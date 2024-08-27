@@ -196,7 +196,7 @@ export default {
 .customMap {
   position: relative;
   width: 100%;
-  height: 92vh;
+  height: 100vh;
 }
 
 .filter {
@@ -248,8 +248,7 @@ export default {
 @media (max-width: 480px) {
   .filter {
     width: 100%;
-    bottom: 0%;
-    height: 150px;
+    bottom: 0;
     border-radius: 0px;
     flex-wrap: wrap;
   }
