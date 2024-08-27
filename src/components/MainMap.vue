@@ -248,7 +248,8 @@ export default {
 @media (max-width: 480px) {
   .filter {
     width: 100%;
-    bottom: 0;
+    bottom: 0%;
+    height: 150px;
     border-radius: 0px;
     flex-wrap: wrap;
   }
