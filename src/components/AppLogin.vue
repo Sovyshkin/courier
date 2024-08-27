@@ -29,6 +29,7 @@ export default {
               location.reload();
             }, 2500);
           } else {
+            this.message = "Неправильно введен логин или пароль";
             setTimeout(() => {
               this.message = "";
             }, 2500);
