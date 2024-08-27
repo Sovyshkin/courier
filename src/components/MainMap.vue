@@ -196,7 +196,7 @@ export default {
 .customMap {
   position: relative;
   width: 100%;
-  height: 93vh;
+  height: 92vh;
 }
 
 .filter {

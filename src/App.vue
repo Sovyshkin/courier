@@ -1,5 +1,4 @@
 <script>
-import RouterView from "vue-router";
 import MainMap from "./components/MainMap.vue";
 import AppHeader from "./components/AppHeader.vue";
 import LeftScreen from "./components/LeftScreen.vue";
@@ -13,7 +12,6 @@ export default {
     LeftScreen,
     RightScreen,
     AppLogin,
-    RouterView,
   },
   data() {
     return {
@@ -52,14 +50,6 @@ export default {
       @updateRegister="handleRegister"
     />
     <MainMap class="map" />
-  </div>
-  <div class="router" v-else>
-    <AppHeader
-      @updateTell="handleTell"
-      @updateLogin="handleLogin"
-      class="header"
-    />
-    <RouterView />
   </div>
 </template>
 <style>

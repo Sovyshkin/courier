@@ -76,6 +76,7 @@ export default {
 .wrapper {
   position: relative;
   width: 100%;
+  height: 8vh;
   background-color: #fff;
   display: flex;
   align-items: center;
