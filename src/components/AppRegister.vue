@@ -4,35 +4,30 @@ export default {
   name: "AppLogin",
   data() {
     return {
-      username: "",
-      password: "",
-      status: "",
+      name: "",
+      email: "",
       message: "",
     };
   },
   methods: {
     async log() {
       try {
-        if (this.username && this.password) {
+        if (this.email) {
           let response = await axios.post(`/login`, {
-            username: this.username,
-            password: this.password,
+            params: {
+              email: this.email,
+              name: this.name,
+            },
           });
-          console.log(response);
-          this.status = response.status;
-          if (this.status == "200") {
-            this.message = "Успешно";
-            localStorage.setItem("token", response.data.token);
-            setTimeout(() => {
-              this.message = "";
-              this.$emit("updateLogin", false);
-              location.reload();
-            }, 2500);
-          } else {
-            setTimeout(() => {
-              this.message = "";
-            }, 2500);
+          this.message = response.data.message;
+          this.message = "Успешно";
+          if (this.message == "Успешно") {
+            localStorage.setItem("login", true);
+            this.$emit("updateLogin", false);
           }
+          setTimeout(() => {
+            this.message = "";
+          }, 2500);
         }
       } catch (err) {
         console.log(err);
@@ -41,6 +36,7 @@ export default {
 
     cancel() {
       document.body.style.overflow = "auto";
+      this.$emit("updateRegister", false);
       this.$emit("updateLogin", false);
     },
   },
@@ -53,30 +49,32 @@ export default {
   <div class="wrapper">
     <div class="card">
       <div class="header">
-        <span class="title">Вход</span>
+        <span class="title">Регистрация</span>
         <img @click="cancel()" class="close" src="../assets/close.svg" alt="" />
       </div>
       <div class="group">
         <input
           type="text"
-          name="username"
-          id="username"
-          v-model="username"
-          placeholder="Введите логин"
+          name="name"
+          id="name"
+          v-model="name"
+          placeholder="Введите ваше имя"
         />
-        <span class="group-value">Логин</span>
+        <span class="group-value">Имя</span>
       </div>
       <div class="group">
         <input
-          type="password"
-          name="password"
-          id="password"
-          v-model="password"
-          placeholder="Введите пароль"
+          type="email"
+          name="email"
+          id="email"
+          v-model="email"
+          placeholder="Введите Email"
         />
-        <span class="group-value">Пароль</span>
+        <span class="group-value">Email</span>
       </div>
-      <button v-if="!message" @click="log" class="btn">Войти</button>
+      <button v-if="!message" @click="log" class="btn">
+        Зарегистрироваться
+      </button>
       <div
         class="msg"
         :class="{
@@ -86,6 +84,11 @@ export default {
         v-if="message"
       >
         {{ message }}
+      </div>
+      <div class="reg">
+        <span @click="this.$emit('updateRegister', false)" class="register"
+          >Войти</span
+        >
       </div>
     </div>
   </div>

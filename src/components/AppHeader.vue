@@ -1,9 +1,12 @@
 <script>
+import axios from "axios";
+
 export default {
   components: {},
   data() {
     return {
       menu: false,
+      token: "",
     };
   },
   methods: {
@@ -27,6 +30,31 @@ export default {
       }
       this.menu = !this.menu;
     },
+
+    async exit() {
+      try {
+        let response = await axios.get(`/logout`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        let status = response.data;
+        if (status == 200) {
+          localStorage.clear();
+          location.reload();
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  },
+
+  mounted() {
+    this.token = localStorage.getItem("token") || null;
+
+    window.addEventListener("storage", () => {
+      this.token = localStorage.getItem("token") || null;
+    });
   },
 };
 </script>
@@ -38,14 +66,9 @@ export default {
     </div>
 
     <div class="wrap-btns">
-      <button @click="log()" class="btn log">Войти</button>
+      <button v-if="!token" @click="log()" class="btn log">Войти</button>
+      <button v-if="token" @click="exit()" class="btn exit">Выйти</button>
     </div>
-    <img
-      @click="clickMenu()"
-      class="img-menu"
-      src="../assets/menu.png"
-      alt=""
-    />
   </div>
 </template>
 
@@ -165,6 +188,12 @@ export default {
 .active_menu {
   display: flex;
   opacity: 1;
+}
+
+.exit {
+  background-color: #cf0032;
+  color: #fff;
+  border: none;
 }
 
 @media (max-width: 1000px) {

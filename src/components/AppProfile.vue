@@ -28,7 +28,7 @@ export default {
     <div class="wrap-profile">
       <h1>Профиль</h1>
       <div class="profile">
-        <img class="avatar" src="../assets/avatar.jpeg" alt="" />
+        <!-- <img class="avatar" src="../assets/avatar.jpeg" alt="" /> -->
         <div class="card">
           <h2>Личные данные</h2>
           <div class="info">
@@ -77,7 +77,7 @@ export default {
       <div class="my-appeals">
         <h2>Мои обращения</h2>
         <div class="item">
-          <img class="img" src="../assets/avatar.jpeg" alt="" />
+          <!-- <img class="img" src="../assets/avatar.jpeg" alt="" /> -->
           <div class="moreInfo">
             <div class="title">Название</div>
             <div class="desc">Тут описание</div>
