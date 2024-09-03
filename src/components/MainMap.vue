@@ -80,6 +80,20 @@ export default {
             .format("YYYY-MM-DD HH:mm:ss");
         }
         if (this.selectedRider && this.from_time) {
+          console.log(
+            await axios.post(
+              `/statistics/riders`,
+              {
+                from_time: this.from_time,
+                till_time: this.till_time,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            )
+          );
           this.selectName = false;
           this.selectTime = false;
           let response = await axios.post(
@@ -95,7 +109,7 @@ export default {
               },
             }
           );
-          console.log(response);
+          // console.log(response);
           let data = response.data;
           if (data) {
             this.orders = Object.keys(data);
@@ -177,7 +191,7 @@ export default {
           </option>
         </select>
       </div>
-      <div @change="load_info" class="group-input">
+      <div class="group-input">
         <span>От</span>
         <input
           type="datetime-local"
@@ -185,8 +199,8 @@ export default {
           :class="{ not_selected: !selectTime }"
           name=""
           id=""
+          @change="load_info"
         />
-        <span>UTC</span>
       </div>
     </div>
   </div>

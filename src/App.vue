@@ -4,6 +4,7 @@ import AppHeader from "./components/AppHeader.vue";
 import LeftScreen from "./components/LeftScreen.vue";
 import RightScreen from "./components/RightScreen.vue";
 import AppLogin from "./components/AppLogin.vue";
+import SelectTime from "./components/SelectTime.vue";
 export default {
   name: "App",
   components: {
@@ -12,12 +13,14 @@ export default {
     LeftScreen,
     RightScreen,
     AppLogin,
+    SelectTime,
   },
   data() {
     return {
       login: false,
       news: false,
       projects: false,
+      select: false,
     };
   },
   methods: {
@@ -25,9 +28,8 @@ export default {
       this.login = login;
     },
 
-    handleRegister(register) {
-      this.login = !register;
-      this.register = register;
+    handleSelect(select) {
+      this.select = select;
     },
   },
   mounted() {},
@@ -37,17 +39,15 @@ export default {
   <AppHeader
     @updateTell="handleTell"
     @updateLogin="handleLogin"
-    class="header"
+    @updateSelect="handleSelect"
+    class="header-app"
   />
   <LeftScreen class="left" v-if="projects" />
   <div class="projects" @click="projects = !projects">Активные заказы</div>
   <RightScreen v-if="news" class="right" />
   <div class="news" @click="news = !news">Закрытые заказы</div>
-  <AppLogin
-    v-if="login"
-    @updateLogin="handleLogin"
-    @updateRegister="handleRegister"
-  />
+  <SelectTime v-if="select" @updateSelect="handleSelect" />
+  <AppLogin v-if="login" @updateLogin="handleLogin" />
   <MainMap class="map" />
 </template>
 <style>
@@ -233,7 +233,7 @@ button::-moz-focus-inner {
   user-select: none; /* Современные браузеры */
 }
 
-.header {
+.header-app {
   position: absolute !important;
   top: 0;
 }
