@@ -74,26 +74,8 @@ export default {
 
     async load_info() {
       try {
-        if (this.from_time) {
-          this.from_time = dayjs(this.from_time)
-            .utc()
-            .format("YYYY-MM-DD HH:mm:ss");
-        }
         if (this.selectedRider && this.from_time) {
-          console.log(
-            await axios.post(
-              `/statistics/riders`,
-              {
-                from_time: this.from_time,
-                till_time: this.till_time,
-              },
-              {
-                headers: {
-                  Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
-              }
-            )
-          );
+          this.from_time = dayjs(this.from_time).format("YYYY-MM-DD HH:mm:ss");
           this.selectName = false;
           this.selectTime = false;
           let response = await axios.post(

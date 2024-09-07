@@ -42,7 +42,12 @@ export default {
             }
           );
           this.url = response.data;
-          this.nameFile = String(this.url.split("/").slice(-1));
+          setTimeout(() => {
+            let aDown = document.querySelector(".down");
+            aDown.href = "http://38.180.172.243:3000" + this.url;
+            aDown.download = this.url.split("/").slice(-1);
+            console.log(aDown);
+          }, 2000);
         }
       } catch (err) {
         console.log(err);
@@ -80,9 +85,7 @@ export default {
         />
         <span class="group-value">От</span>
       </div>
-      <a v-if="!isLoading" class="btn" :href="url" :download="nameFile"
-        >Скачать</a
-      >
+      <a v-if="!isLoading" class="btn down" download>Скачать</a>
     </div>
   </div>
 </template>
