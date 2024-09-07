@@ -47,7 +47,8 @@ export default {
             aDown.href = "http://38.180.172.243:3000" + this.url;
             aDown.download = this.url.split("/").slice(-1);
             console.log(aDown);
-          }, 2000);
+            aDown.click();
+          }, 1000);
         }
       } catch (err) {
         console.log(err);
@@ -257,5 +258,9 @@ input::placeholder {
   color: #ff5f21 !important;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.down {
+  display: none;
 }
 </style>
