@@ -14,6 +14,7 @@ export default {
       url: "",
       nameFile: "",
       isLoading: false,
+      message: "",
     };
   },
   methods: {
@@ -26,9 +27,7 @@ export default {
       try {
         this.isLoading = true;
         if (this.from_time) {
-          this.from_time = dayjs(this.from_time)
-            .utc()
-            .format("YYYY-MM-DD HH:mm:ss");
+          this.from_time = dayjs(this.from_time).format("YYYY-MM-DD HH:mm:ss");
           let response = await axios.post(
             `/statistics/riders`,
             {
@@ -52,6 +51,7 @@ export default {
         }
       } catch (err) {
         console.log(err);
+        this.message = "Ошибка";
       } finally {
         this.isLoading = false;
       }
@@ -87,6 +87,16 @@ export default {
         <span class="group-value">От</span>
       </div>
       <a v-if="!isLoading" class="btn down" download>Скачать</a>
+      <div
+        class="msg"
+        :class="{
+          success: this.message == 'Успешно',
+          error: this.message != 'Успешно',
+        }"
+        v-if="message"
+      >
+        {{ message }}
+      </div>
     </div>
   </div>
 </template>

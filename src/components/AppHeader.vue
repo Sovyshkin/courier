@@ -45,6 +45,8 @@ export default {
         }
       } catch (err) {
         console.log(err);
+        localStorage.clear();
+        location.reload();
       }
     },
   },
@@ -64,7 +66,7 @@ export default {
     <div class="codered" @click="this.$router.push({ name: 'home' })">
       Code<span class="red">Red</span>
     </div>
-    <a @click="this.$emit('updateSelect', true)">Получить отчет</a>
+    <a v-if="token" @click="this.$emit('updateSelect', true)">Получить отчет</a>
     <div class="wrap-btns">
       <button v-if="!token" @click="log()" class="btn log">Войти</button>
       <button v-if="token" @click="exit()" class="btn exit">Выйти</button>
